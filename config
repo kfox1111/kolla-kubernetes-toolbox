@@ -1,0 +1,12 @@
+api_interface_address: 0.0.0.0
+orchestration_engine: KUBERNETES
+memcached_servers: "memcached"
+keystone_database_address: "mariadb"
+keystone_admin_url: "http://keystone-admin:35357/v3"
+keystone_internal_url: "http://keystone-public:5000/v3"
+keystone_public_url: "http://keystone-public:5000/v3"
+glance_registry_host: "glance"
+
+enable_haproxy: "no"
+
+set_sysctl: "no"
