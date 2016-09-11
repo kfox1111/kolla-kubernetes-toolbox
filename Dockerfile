@@ -15,12 +15,26 @@ RUN \
     . .venv/bin/activate; \
     pip install pip --upgrade; \
     pip install -r requirements.txt; \
-    pip install pyyaml;'
+    pip install pyyaml; \
+    cd ..; git clone https://github.com/openstack/kolla-kubernetes.git; \
+    cd kolla-kubernetes; \
+    git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/60/368460/1 && git checkout FETCH_HEAD; \
+    pip install -r requirements.txt; \
+    pip install .;'
 
 ADD start.sh /start.sh
 ADD config /tmp/config
 
 RUN cat /tmp/config >> /home/kolla/kolla/etc/kolla/globals.yml
+
+#FIXME... This should copy the files over if they are unchanged... md5sum
+RUN ln -s /home/kolla/kolla-kubernetes/etc/kolla-kubernetes /etc/kolla-kubernetes
+
+RUN ln -s /home/kolla/kolla /usr/share/kolla
+
+RUN yum install -y jq wget sudo
+
+RUN sed -i 's/sudo//' /home/kolla/kolla-kubernetes/tools/setup-kubectl.sh; /home/kolla/kolla-kubernetes/tools/setup-kubectl.sh
 
 USER kolla
 
