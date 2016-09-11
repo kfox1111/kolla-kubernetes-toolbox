@@ -36,6 +36,8 @@ RUN yum install -y jq wget sudo
 
 RUN sed -i 's/sudo//' /home/kolla/kolla-kubernetes/tools/setup-kubectl.sh; /home/kolla/kolla-kubernetes/tools/setup-kubectl.sh
 
+RUN mkdir /etc/kolla; chown kolla /etc/kolla
+
 USER kolla
 
 ENTRYPOINT ["/start.sh"]
