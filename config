@@ -17,6 +17,9 @@ enable_haproxy: "no"
 
 set_sysctl: "no"
 
+#Using snapshot for now, since compatible container is not released yet.
+kolla_toolbox_image_full: kfox1111/centos-binary-kolla-toolbox:trunk-sometime
+
 #Using mitaka for now, as it has pull'able rpms
 mariadb_tag: '2.0.1'
 keystone_tag: '2.0.1'
