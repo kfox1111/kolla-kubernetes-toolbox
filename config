@@ -9,4 +9,14 @@ glance_registry_host: "glance"
 
 enable_haproxy: "no"
 
+#Swift needs a patch to work.
+#enable_swift: "yes"
+
+#Cinder needs some further config to work.
+#enable_cinder: "yes"
+
 set_sysctl: "no"
+
+#Using mitaka for now, as it has pull'able rpms
+mariadb_tag: '2.0.1'
+keystone_tag: '2.0.1'
