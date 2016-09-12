@@ -23,3 +23,5 @@ kolla_toolbox_image_full: kfox1111/centos-binary-kolla-toolbox:trunk-sometime
 #Using mitaka for now, as it has pull'able rpms
 mariadb_tag: '2.0.1'
 keystone_tag: '2.0.1'
+glance_api_tag: '2.0.1'
+glance_registry_tag: '2.0.1'
