@@ -18,7 +18,7 @@ RUN \
     pip install pyyaml; \
     cd ..; git clone https://github.com/openstack/kolla-kubernetes.git; \
     cd kolla-kubernetes; \
-    git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/38/369138/1 && git checkout FETCH_HEAD; \
+    git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/04/369504/1 && git checkout FETCH_HEAD; \
     pip install -r requirements.txt; \
     pip install .;'
 
@@ -26,6 +26,7 @@ ADD start.sh /start.sh
 ADD config /tmp/config
 ADD gen_keystone_admin.sh /home/kolla/gen_keystone_admin.sh
 ADD openstackcli.yaml /home/kolla/openstackcli.yaml
+ADD stash_config.sh /home/kolla/stash_config.sh
 
 RUN cat /tmp/config >> /home/kolla/kolla/etc/kolla/globals.yml
 
