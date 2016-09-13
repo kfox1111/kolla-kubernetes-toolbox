@@ -10,12 +10,14 @@ RUN \
   cd /; \
   su - kolla /bin/bash -c 'cd; git clone https://github.com/openstack/kolla.git; \
     cd kolla; \
+    git fetch https://git.openstack.org/openstack/kolla refs/changes/27/369127/1 && git checkout FETCH_HEAD; \
     virtualenv .venv; \
     . .venv/bin/activate; \
     pip install pip --upgrade; \
     pip install -r requirements.txt; \
     pip install pyyaml; \
     cd ..; git clone https://github.com/openstack/kolla-kubernetes.git; \
+    git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/26/369126/1 && git checkout FETCH_HEAD; \
     cd kolla-kubernetes; \
     pip install -r requirements.txt; \
     pip install .;'
