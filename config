@@ -1,13 +1,23 @@
 api_interface_address: 0.0.0.0
 orchestration_engine: KUBERNETES
 memcached_servers: "memcached"
-keystone_database_address: "mariadb"
 keystone_admin_url: "http://keystone-admin:35357/v3"
 keystone_internal_url: "http://keystone-public:5000/v3"
 keystone_public_url: "http://keystone-public:5000/v3"
-glance_registry_host: "glance"
+glance_registry_host: "glance-registry"
+neutron_host: "neutron"
+keystone_database_address: "mariadb"
+glance_database_address: "mariadb"
+nova_database_address: "mariadb"
+nova_api_database_address: "mariadb"
+neutron_database_address: "mariadb"
+cinder_database_address: "mariadb"
+rabbitmq_servers: "rabbitmq"
+
+openstack_logging_debug: "True"
 
 enable_haproxy: "no"
+enable_cinder: "yes"
 
 #Swift needs a patch to work.
 #enable_swift: "yes"

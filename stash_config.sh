@@ -1,8 +1,8 @@
 #!/bin/bash
-if [ "x$1" == "x" ]; do
+if [ "x$1" == "x" ]; then
 	echo "You must use argument 'push' or 'pull" >&2
         exit -1
-done
+fi
 if [ "$x" == "pull" ]; then
 	kubectl create secret generic kolla-config --from-file=globals.yml=/etc/kolla/globals.yml --from-file=passwords.yml=/etc/kolla/passwords.yml
 else if [ "$x" == "push" ]; then
