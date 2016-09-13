@@ -17,7 +17,7 @@ rabbitmq_servers: "rabbitmq"
 openstack_logging_debug: "True"
 
 enable_haproxy: "no"
-enable_cinder: "yes"
+enable_cinder: "no"
 
 #Swift needs a patch to work.
 #enable_swift: "yes"
