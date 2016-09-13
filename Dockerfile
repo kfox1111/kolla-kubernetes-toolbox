@@ -17,8 +17,8 @@ RUN \
     pip install -r requirements.txt; \
     pip install pyyaml; \
     cd ..; git clone https://github.com/openstack/kolla-kubernetes.git; \
-    git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/26/369126/1 && git checkout FETCH_HEAD; \
     cd kolla-kubernetes; \
+    git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/26/369126/1 && git checkout FETCH_HEAD; \
     pip install -r requirements.txt; \
     pip install .;'
 
