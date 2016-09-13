@@ -10,7 +10,6 @@ RUN \
   cd /; \
   su - kolla /bin/bash -c 'cd; git clone https://github.com/openstack/kolla.git; \
     cd kolla; \
-    git fetch https://git.openstack.org/openstack/kolla refs/changes/69/368469/8 && git checkout FETCH_HEAD; \
     virtualenv .venv; \
     . .venv/bin/activate; \
     pip install pip --upgrade; \
@@ -23,6 +22,8 @@ RUN \
 
 ADD start.sh /start.sh
 ADD config /tmp/config
+ADD gen_keystone_admin.sh /home/kolla/gen_keystone_admin.sh
+ADD openstackcli.yaml /home/kolla/openstackcli.yaml
 
 RUN cat /tmp/config >> /home/kolla/kolla/etc/kolla/globals.yml
 
