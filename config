@@ -25,6 +25,8 @@ enable_cinder: "no"
 #Cinder needs some further config to work.
 #enable_cinder: "yes"
 
+kolla_kubernetes_ovs_setup_bridge: "no"
+
 set_sysctl: "no"
 
 #Using snapshot for now, since compatible container is not released yet.
