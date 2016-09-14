@@ -26,11 +26,15 @@ enable_cinder: "no"
 #enable_cinder: "yes"
 
 kolla_kubernetes_ovs_setup_bridge: "no"
+enable_resolve_conf_net_host_workaround: "yes"
 
 set_sysctl: "no"
 
 #Using snapshot for now, since compatible container is not released yet.
 kolla_toolbox_image_full: kfox1111/centos-binary-kolla-toolbox:trunk-sometime
+
+#FIXME try and remove.
+#enable_openvswitch_tcp: "yes"
 
 #Using mitaka for now, as it has pull'able rpms
 mariadb_tag: '2.0.1'
