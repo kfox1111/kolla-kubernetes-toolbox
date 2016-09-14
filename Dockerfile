@@ -19,7 +19,7 @@ RUN \
     cd ..; git clone https://github.com/openstack/kolla-kubernetes.git; \
     cd kolla-kubernetes; \
     pip install -r requirements.txt; \
-    pip install .;'
+    pip install .; echo force rebuild 1'
 
 ADD start.sh /start.sh
 ADD config /tmp/config
