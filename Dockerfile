@@ -18,7 +18,7 @@ RUN \
     pip install pyyaml; \
     cd ..; git clone https://github.com/openstack/kolla-kubernetes.git; \
     cd kolla-kubernetes; \
-    git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/85/369785/6 && git checkout FETCH_HEAD; \
+    git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/59/370459/2 && git checkout FETCH_HEAD; \
     pip install -r requirements.txt; \
     pip install .; echo force rebuild 1'
 
@@ -35,7 +35,7 @@ RUN ln -s /home/kolla/kolla-kubernetes/etc/kolla-kubernetes /etc/kolla-kubernete
 
 RUN ln -s /home/kolla/kolla /usr/share/kolla
 
-RUN yum install -y jq wget sudo
+RUN yum install -y jq wget sudo crudini
 
 RUN sed -i 's/sudo//' /home/kolla/kolla-kubernetes/tools/setup-kubectl.sh; /home/kolla/kolla-kubernetes/tools/setup-kubectl.sh
 
