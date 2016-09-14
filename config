@@ -25,7 +25,8 @@ enable_cinder: "no"
 #Cinder needs some further config to work.
 #enable_cinder: "yes"
 
-kolla_kubernetes_ovs_setup_bridge: "no"
+kolla_kubernetes_ovs_setup_bridge: "yes"
+kolla_kubernetes_ovs_add_port: "no"
 enable_resolve_conf_net_host_workaround: "yes"
 
 set_sysctl: "no"
