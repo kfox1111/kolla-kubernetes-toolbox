@@ -10,7 +10,6 @@ RUN \
   cd /; \
   su - kolla /bin/bash -c 'cd; git clone https://github.com/openstack/kolla.git; \
     cd kolla; \
-    git fetch https://git.openstack.org/openstack/kolla refs/changes/27/369127/2 && git checkout FETCH_HEAD; \
     virtualenv .venv; \
     . .venv/bin/activate; \
     pip install pip --upgrade; \
@@ -18,7 +17,7 @@ RUN \
     pip install pyyaml; \
     cd ..; git clone https://github.com/openstack/kolla-kubernetes.git; \
     cd kolla-kubernetes; \
-    git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/59/370459/2 && git checkout FETCH_HEAD; \
+    git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/59/370459/3 && git checkout FETCH_HEAD; \
     pip install -r requirements.txt; \
     pip install .; echo force rebuild 1'
 
