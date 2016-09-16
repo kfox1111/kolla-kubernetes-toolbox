@@ -1,0 +1,3 @@
+kolla_kubernetes_ovs_setup_bridge: "yes"
+kolla_kubernetes_ovs_add_port: "no"
+enable_resolve_conf_net_host_workaround: "yes"
