@@ -8,7 +8,7 @@ RUN \
 
 RUN \
   cd /; \
-  su - kolla /bin/bash -ec 'cd; git clone https://github.com/openstack/kolla.git; \
+  su - kolla /bin/bash -c 'set -e; cd; git clone https://github.com/openstack/kolla.git; \
     cd kolla; \
     virtualenv .venv; \
     . .venv/bin/activate; \
