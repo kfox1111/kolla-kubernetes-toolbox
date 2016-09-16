@@ -21,14 +21,14 @@ RUN \
     pip install .; echo force rebuild 1'
 
 ADD start.sh /start.sh
-ADD kube_config /tmp/kube_config
-ADD kube_kolla_config /tmp/kube_kolla_config
+ADD kolla_config /tmp/kolla_config
+ADD kolla_kubernetes_config /tmp/kolla_kubernetes_config
 ADD gen_keystone_admin.sh /home/kolla/gen_keystone_admin.sh
 ADD openstackcli.yaml /home/kolla/openstackcli.yaml
 ADD stash_config.sh /home/kolla/stash_config.sh
 
-RUN cat /tmp/kube_config >> /home/kolla/kolla/etc/kolla/globals.yml
-RUN cat /tmp/kube_kolla_config >> /home/kolla/kolla-kubernetes/etc/kolla-kubernetes/kolla-kubernetes.yml
+RUN cat /tmp/kolla_config >> /home/kolla/kolla/etc/kolla/globals.yml
+RUN cat /tmp/kolla_kubernetes_config >> /home/kolla/kolla-kubernetes/etc/kolla-kubernetes/kolla-kubernetes.yml
 
 #FIXME... This should copy the files over if they are unchanged... md5sum
 RUN ln -s /home/kolla/kolla-kubernetes/etc/kolla-kubernetes /etc/kolla-kubernetes
