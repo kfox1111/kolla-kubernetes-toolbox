@@ -19,8 +19,8 @@ RUN \
     cd kolla-kubernetes; \
     git config --global user.email "you@example.com"; \
     git config --global user.name "Your Name"; \
-    git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/42/371242/2 && git format-patch -1 --stdout FETCH_HEAD > 0.patch; \
-    git am < 0.patch; \
+git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/81/371981/2 && git format-patch -2 --stdout FETCH_HEAD > 0.patch; \
+    git am 0.patch; \
     pip install -r requirements.txt; \
     pip install .; echo force rebuild 1'
 
@@ -30,6 +30,7 @@ ADD kolla_kubernetes_config /tmp/kolla_kubernetes_config
 ADD gen_keystone_admin.sh /home/kolla/gen_keystone_admin.sh
 ADD openstackcli.yaml /home/kolla/openstackcli.yaml
 ADD stash_config.sh /home/kolla/stash_config.sh
+ADD set_external_ip.sh /home/kolla/set_external_ip.sh
 
 RUN cat /tmp/kolla_config >> /home/kolla/kolla/etc/kolla/globals.yml
 RUN cat /tmp/kolla_kubernetes_config >> /home/kolla/kolla-kubernetes/etc/kolla-kubernetes/kolla-kubernetes.yml
