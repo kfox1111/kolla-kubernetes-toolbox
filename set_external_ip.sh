@@ -7,6 +7,7 @@ fi
 
 IP=$1
 
-sed -i "s/^\(kolla_external_vip_address\):.*/\1 '$IP/" /etc/kolla/globals.yml
-sed -i "s/^\(kolla_kubernetes_external_vip\):.*/\1 '$IP/" /etc/kolla-kubernetes/kolla/kubernetes.yml
+echo "kolla_external_vip_address: '$IP'" >> /etc/kolla/globals.yml
+sed -i "s/^\(kolla_external_vip_address:\).*/\1 '$IP'/" /etc/kolla/globals.yml
+sed -i "s/^\(kolla_kubernetes_external_vip:\).*/\1 '$IP'/" /etc/kolla-kubernetes/kolla-kubernetes.yml
 
