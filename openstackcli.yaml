@@ -6,7 +6,7 @@ spec:
   restartPolicy: Never
   containers:
   - name: main
-    image: "kolla/centos-binary-openstack-base:2.0.1"
+    image: "kolla/centos-binary-openstack-base:2.0.2"
     command: ["/bin/bash","-c"]
     args: ["echo '. /srv/keystonerc-admin' >> ~/.bashrc; while true; do sleep 10000; done"]
     volumeMounts:
