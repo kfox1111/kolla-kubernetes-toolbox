@@ -19,8 +19,10 @@ RUN \
     cd kolla-kubernetes; \
     git config --global user.email "you@example.com"; \
     git config --global user.name "Your Name"; \
-git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/81/371981/6 && git format-patch -2 --stdout FETCH_HEAD > 0.patch; \
+    git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/81/371981/6 && git format-patch -2 --stdout FETCH_HEAD > 0.patch; \
+    git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/48/371148/4 && git format-patch -1 --stdout FETCH_HEAD > 1.patch; \
     git am 0.patch; \
+    git am 1.patch; \
     pip install -r requirements.txt; \
     pip install .; echo force rebuild 1'
 
