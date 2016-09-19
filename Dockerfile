@@ -3,23 +3,26 @@ MAINTAINER Kevin Fox "Kevin.Fox@pnnl.gov"
 
 RUN \
   rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm; \
-  yum install -y git ansible python-virtualenv python-devel gcc; \
+  yum install -y git python-virtualenv python-devel gcc openssl-devel; \
   adduser kolla;
 
 RUN \
   cd /; \
   su - kolla /bin/bash -c 'set -e; cd; git clone https://github.com/openstack/kolla.git; \
     cd kolla; \
+    git config --global user.email "you@example.com"; \
+    git config --global user.name "Your Name"; \
+    git fetch https://git.openstack.org/openstack/kolla refs/changes/38/372738/3 && git format-patch -1 --stdout FETCH_HEAD > 0.patch;\
+    git am 0.patch; \
     virtualenv .venv; \
     . .venv/bin/activate; \
     pip install pip --upgrade; \
+    pip install "ansible<2.1";\
     pip install -r requirements.txt; \
     pip install pyyaml; \
     cd ..; git clone https://github.com/openstack/kolla-kubernetes.git; \
     cd kolla-kubernetes; \
-    git config --global user.email "you@example.com"; \
-    git config --global user.name "Your Name"; \
-    git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/89/372189/3 && git cherry-pick FETCH_HEAD; \
+    git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/89/372189/4 && git cherry-pick FETCH_HEAD; \
     git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/81/371981/6 && git format-patch -2 --stdout FETCH_HEAD > 0.patch; \
     git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/48/371148/5 && git format-patch -1 --stdout FETCH_HEAD > 1.patch; \
     git am 0.patch; \

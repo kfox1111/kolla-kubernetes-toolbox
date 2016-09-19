@@ -8,3 +8,9 @@ kolla_kubernetes_external_subnet: "24"
 
 horizon_http_nodeport: "80"
 horizon_https_nodeport: "443"
+
+cinder_storage_list:
+  - lvm_backends:
+  - iscsi_target_1:
+     ip: "127.0.0.1"
+     vg_name: "cinder-volumes"

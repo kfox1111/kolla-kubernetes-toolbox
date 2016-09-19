@@ -17,13 +17,11 @@ rabbitmq_servers: "rabbitmq"
 openstack_logging_debug: "True"
 
 enable_haproxy: "no"
-enable_cinder: "no"
+enable_cinder: "yes"
+enable_cinder_backend_lvm: "yes"
 
 #Swift needs a patch to work.
 #enable_swift: "yes"
-
-#Cinder needs some further config to work.
-#enable_cinder: "yes"
 
 set_sysctl: "no"
 
@@ -51,6 +49,12 @@ neutron_openvswitch_agent_tag: '2.0.2'
 neutron_metadata_agent_tag: '2.0.2'
 openvswitch_db_tag: '2.0.2'
 openvswitch_vswitchd_tag: '2.0.2'
+cinder_api_tag: '2.0.2'
+cinder_scheduler_tag: '2.0.2'
+cinder_volume_tag: '2.0.2'
+#There are is lvm/iscsi support in kolla 2.x
+#iscsid_tag: '2.0.2'
+#tgtd_tag: '2.0.2'
 
 #For some reason, centos libvirt is incompatible with minikube's kernel.
 nova_libvirt_image_full: 'kolla/ubuntu-binary-nova-libvirt:2.0.2'
