@@ -17,8 +17,15 @@ rabbitmq_servers: "rabbitmq"
 openstack_logging_debug: "True"
 
 enable_haproxy: "no"
+enable_heat: "yes"
 enable_cinder: "yes"
-enable_cinder_backend_lvm: "yes"
+enable_cinder_backend_lvm: "no"
+enable_cinder_backend_rbd: "yes"
+enable_ceph: "yes"
+
+#Once this is tested and working, enable
+#glance_backend_ceph: "yes"
+#cinder_backend_ceph: "yes"
 
 #Swift needs a patch to work.
 #enable_swift: "yes"
@@ -52,6 +59,9 @@ openvswitch_vswitchd_tag: '2.0.2'
 cinder_api_tag: '2.0.2'
 cinder_scheduler_tag: '2.0.2'
 cinder_volume_tag: '2.0.2'
+ceph_mon_tag: '2.0.2'
+ceph_osd_tag: '2.0.2'
+
 #There are is lvm/iscsi support in kolla 2.x
 #iscsid_tag: '2.0.2'
 #tgtd_tag: '2.0.2'
@@ -65,4 +75,3 @@ nova_scheduler_image_full: 'kolla/ubuntu-binary-nova-scheduler:2.0.2'
 nova_conductor_image_full: 'kolla/ubuntu-binary-nova-conductor:2.0.2'
 nova_novncproxy_image_full: 'kolla/ubuntu-binary-nova-novncproxy:2.0.2'
 nova_consoleauth_image_full: 'kolla/ubuntu-binary-nova-consoleauth:2.0.2'
-

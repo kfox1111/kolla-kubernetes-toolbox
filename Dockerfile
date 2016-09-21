@@ -12,8 +12,6 @@ RUN \
     cd kolla; \
     git config --global user.email "you@example.com"; \
     git config --global user.name "Your Name"; \
-    git fetch https://git.openstack.org/openstack/kolla refs/changes/38/372738/3 && git format-patch -1 --stdout FETCH_HEAD > 0.patch;\
-    git am 0.patch; \
     virtualenv .venv; \
     . .venv/bin/activate; \
     pip install pip --upgrade; \
@@ -24,7 +22,7 @@ RUN \
     cd kolla-kubernetes; \
     git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/89/372189/4 && git cherry-pick FETCH_HEAD; \
     git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/81/371981/6 && git format-patch -2 --stdout FETCH_HEAD > 0.patch; \
-    git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/48/371148/5 && git format-patch -1 --stdout FETCH_HEAD > 1.patch; \
+    git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/56/373256/6 && git format-patch -1 --stdout FETCH_HEAD > 1.patch; \
     git am 0.patch; \
     git am 1.patch; \
     pip install -r requirements.txt; \

@@ -9,8 +9,11 @@ kolla_kubernetes_external_subnet: "24"
 horizon_http_nodeport: "80"
 horizon_https_nodeport: "443"
 
-cinder_storage_list:
-  - lvm_backends:
-  - iscsi_target_1:
-     ip: "127.0.0.1"
-     vg_name: "cinder-volumes"
+storage_interface: "docker0"
+storage_ceph:
+  monitors:
+  - 172.17.0.1
+  ssh_user: root
+  secretName: ceph-secret
+  key: EXAMPLEEXAMPLEEXAMPLEEXAMPLEEXAMPLEEXAMPLE=
+  initial_mon: minikube
