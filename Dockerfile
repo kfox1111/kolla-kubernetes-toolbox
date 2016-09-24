@@ -20,11 +20,8 @@ RUN \
     pip install pyyaml; \
     cd ..; git clone https://github.com/openstack/kolla-kubernetes.git; \
     cd kolla-kubernetes; \
-    git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/89/372189/4 && git cherry-pick FETCH_HEAD; \
-    git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/81/371981/6 && git format-patch -2 --stdout FETCH_HEAD > 0.patch; \
-    git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/56/373256/9 && git format-patch -1 --stdout FETCH_HEAD > 1.patch; \
+    git fetch https://git.openstack.org/openstack/kolla-kubernetes refs/changes/56/373256/11 && git format-patch -1 --stdout FETCH_HEAD > 0.patch; \
     git am 0.patch; \
-    git am 1.patch; \
     pip install -r requirements.txt; \
     pip install .; echo force rebuild 1'
 
