@@ -26,8 +26,9 @@ enable_elasticsearch: "yes"
 enable_kibana: "yes"
 
 #Once this is tested and working, enable
-#glance_backend_ceph: "yes"
-#cinder_backend_ceph: "yes"
+glance_backend_ceph: "yes"
+cinder_backend_ceph: "no"
+nova_backend_ceph: "no"
 
 #Swift needs a patch to work.
 #enable_swift: "yes"
