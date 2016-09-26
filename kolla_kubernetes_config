@@ -6,9 +6,6 @@ kolla_kubernetes_ovs_add_external_ip: "yes"
 kolla_kubernetes_external_bridge_ip: "172.18.0.1"
 kolla_kubernetes_external_subnet: "24"
 
-horizon_http_nodeport: "80"
-horizon_https_nodeport: "443"
-
 storage_interface: "docker0"
 storage_ceph:
   monitors:
