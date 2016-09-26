@@ -27,7 +27,7 @@ enable_kibana: "yes"
 
 #Once this is tested and working, enable
 glance_backend_ceph: "yes"
-cinder_backend_ceph: "no"
+cinder_backend_ceph: "yes"
 nova_backend_ceph: "no"
 
 #Swift needs a patch to work.
